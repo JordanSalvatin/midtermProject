@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <table class="table table-striped">
+    <thead>
+      <h1>PRODUCT LIST</h1>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of product; track product.id) {
+        <tr>
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.status }}</td>
+          <td>
+            <a [routerLink]="['/prod_list', product.id, 'details' ]"
+            class="btn-view" (onclick)="getProduct(product)">View Details></a>
+
+           
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  </div>
+

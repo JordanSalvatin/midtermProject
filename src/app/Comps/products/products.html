@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <table class="table table-striped">
+    <thead>
+      <h1>PRODUCT LIST</h1>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of products; track product.id) {
+        <tr>
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.status }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm" (click)="viewProductDetails(product)">
+              View
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+<div class="modal-body">
+  @if (selectedProduct) {
+    <p><strong>Product ID:</strong> {{ selectedProduct.id }}</p> 
+    <p><strong>Name:</strong> {{ selectedProduct.name }}</p> 
+    <p><strong>Category:</strong> {{ selectedProduct.category }}</p> 
+    <p><strong>Price:</strong> ₱{{ selectedProduct.price }}</p> 
+    <p><strong>Stock Level:</strong> {{ selectedProduct.stock }}</p> 
+    <p><strong>Status:</strong> {{ selectedProduct.status }}</p> 
+    <hr>
+    <p><strong>Description:</strong></p>
+    <p>{{ selectedProduct.description }}</p> 
+  }
+</div>
+</div>
